@@ -13,18 +13,28 @@
       - [1.2.2.1. `nodeName`](#1221-nodename)
       - [1.2.2.2. `nodeValue`](#1222-nodevalue)
       - [1.2.2.3. `nodeType`](#1223-nodetype)
-    - [1.2.3. 节点的查找](#123-节点的查找)
-      - [1.2.3.1. 找孩子](#1231-找孩子)
-      - [1.2.3.2. 找兄弟](#1232-找兄弟)
-      - [1.2.3.3. 找父亲](#1233-找父亲)
-  - [1.3. 获取元素的方法](#13-获取元素的方法)
-    - [1.3.1. `getElementById()`](#131-getelementbyid)
-    - [1.3.2. `getElementByTagName()`](#132-getelementbytagname)
-    - [1.3.3. `getElementsByClassName()`](#133-getelementsbyclassname)
-    - [1.3.4. `getElementsByTagName()`](#134-getelementsbytagname)
-    - [1.3.5. `querySelector()`](#135-queryselector)
-    - [1.3.6. `querySelectorAll()`](#136-queryselectorall)
-    - [1.3.7. 网页元素](#137-网页元素)
+  - [1.3. 节点的操作](#13-节点的操作)
+    - [1.3.1. 节点的查找](#131-节点的查找)
+      - [1.3.1.1. 找孩子](#1311-找孩子)
+      - [1.3.1.2. 找兄弟](#1312-找兄弟)
+      - [1.3.1.3. 找父亲](#1313-找父亲)
+    - [1.3.2. 节点的插入](#132-节点的插入)
+      - [1.3.2.1. `appendChild()`](#1321-appendchild)
+      - [1.3.2.2. `insertBefore()`](#1322-insertbefore)
+    - [1.3.3. 节点的克隆`cloneNode()`](#133-节点的克隆clonenode)
+    - [1.3.4. 节点的创建](#134-节点的创建)
+      - [1.3.4.1. `createElement()`](#1341-createelement)
+      - [1.3.4.2. `createTextNode()`](#1342-createtextnode)
+    - [1.3.5. 节点的删除`removeChild()`](#135-节点的删除removechild)
+    - [1.3.6. 节点的替换`replaceChild ()`](#136-节点的替换replacechild-)
+  - [1.4. 获取元素的方法](#14-获取元素的方法)
+    - [1.4.1. `getElementById()`](#141-getelementbyid)
+    - [1.4.2. `getElementByTagName()`](#142-getelementbytagname)
+    - [1.4.3. `getElementsByClassName()`](#143-getelementsbyclassname)
+    - [1.4.4. `getElementsByTagName()`](#144-getelementsbytagname)
+    - [1.4.5. `querySelector()`](#145-queryselector)
+    - [1.4.6. `querySelectorAll()`](#146-queryselectorall)
+    - [1.4.7. 网页元素](#147-网页元素)
 
 <!-- /TOC -->
 
@@ -185,70 +195,207 @@ console.log( document.getElementById('div').nodeType ); // => 1：元素节点
 console.log( document.getElementById('div').attributes.style.nodeType ); // => 2：属性节点
 ```
 
-### 1.2.3. 节点的查找
+## 1.3. 节点的操作
 
-#### 1.2.3.1. 找孩子
+### 1.3.1. 节点的查找
+
+#### 1.3.1.1. 找孩子
 
 ```JavaScript
 // 找孩子
 var ul = document.querySelector('ul');
 
-      //1. childNodes 获取所有的子节点
-      console.log(ul.childNodes);
+//1. childNodes 获取所有的子节点
+console.log(ul.childNodes);
 
-      //2. children 获取所有的子元素
-      console.log(ul.children);
+//2. children 获取所有的子元素
+onsole.log(ul.children);
 
-      //3. firstChild  第一个子节点
-      console.log(ul.firstChild);
+//3. firstChild  第一个子节点
+console.log(ul.firstChild);
 
-      //4. firstElementChild  第一个子元素
-      console.log(ul.firstElementChild);
+//4. firstElementChild  第一个子元素
+console.log(ul.firstElementChild);
 
-      //5. lastChild 最后一个子节点
-      console.log(ul.lastChild);
+//5. lastChild 最后一个子节点
+console.log(ul.lastChild);
 
-      //6. lastElementChild 最后一个子元素
-      console.log(ul.lastElementChild);
+//6. lastElementChild 最后一个子元素
+console.log(ul.lastElementChild);
 
-      //7. children[2]  任意一个
-      console.log(ul.children[2]);
+//7. children[2]  任意一个
+console.log(ul.children[2]);
 ```
 
-#### 1.2.3.2. 找兄弟
+#### 1.3.1.2. 找兄弟
 
 ```JavaScript
 // 找兄弟 sibling 兄弟姊妹
 var l2 = document.querySelector('.l');
 
-      //1. nextSibling  下一个兄弟节点
-      console.log(l2.nextSibling);
+//1. nextSibling  下一个兄弟节点
+console.log(l2.nextSibling);
 
-      //2. nextElementSibling 下一个兄弟元素
-      console.log(l2.nextElementSibling);
+//2. nextElementSibling 下一个兄弟元素
+console.log(l2.nextElementSibling);
 
-      //3. previousSibling 上一个兄弟节点
-      // previous 上一个
-      console.log(l2.previousSibling);
+//3. previousSibling 上一个兄弟节点
+// previous 上一个
+console.log(l2.previousSibling);
 
-      //4. previousElementSibling 上一个兄弟元素
-      console.log(l2.previousElementSibling);
+//4. previousElementSibling 上一个兄弟元素
+console.log(l2.previousElementSibling);
 ```
 
-#### 1.2.3.3. 找父亲
+#### 1.3.1.3. 找父亲
 
 ```JavaScript
 // 找父亲
 //1. parentElement 父元素 ie9+
 console.log( son.parentElement);
 
-      //2. parentNode   父节点  (下面的 ) ie6789+
-      console.log(son.parentNode);
+//2. parentNode   父节点  (下面的 ) ie6789+
+console.log(son.parentNode);
 ```
 
-## 1.3. 获取元素的方法
+### 1.3.2. 节点的插入
 
-### 1.3.1. `getElementById()`
+#### 1.3.2.1. `appendChild()`
+
+在指定节点的最后一个子节点列表之后添加一个新的子节点。
+
+**结构** :
+父元素.appendChild(子元素)
+
+**示例**：
+
+```JavaScript
+<ul>
+    <li class="l1">1</li>
+    <li class="l2">2</li>
+    <li class="l3">3</li>
+</ul>
+<hr>
+<p>哈哈</p>
+
+var ul = document.querySelector('ul');
+var p = document.querySelector('p');
+// 添加
+ul.appendChild(p);//将p追加到ul里面的最后面
+```
+
+**注意点** :
+
+1. 如果要添加的子元素在网页中本来就存在, `appendChild` 就相当于一个剪切
+2. 会添加到所有子元素的最后面
+
+#### 1.3.2.2. `insertBefore()`
+
+在已有的子节点前插入一个新的子节点。
+
+**结构**：
+父级节点.insertBefore( 要插入的节点，指定节点 )
+
+**示例**：
+
+```JavaScript
+var ul = document.querySelector('ul');
+var l1 = document.querySelector('.l1');
+var l2 = document.querySelector('.l2');
+var l3 = document.querySelector('.l3');
+var p = document.querySelector('p');
+
+ul.insertBefore(p,l3);//把p插入到l2之前
+ul.insertBefore(p,null);//把p添加到最后
+ul.insertBefore(p,ul.children[0]);//添加到子元素最前面  (不获取l1)
+ul.insertBefore(p,l2.nextElementSibling)//添加到l2之后,不获取l3的情况下
+```
+
+### 1.3.3. 节点的克隆`cloneNode()`
+
+克隆节点 (复制 拷贝)
+
+**结构** :
+
+节点.cloneNode(isdeep)
+
+**参数**：isdeep(Boolean)
+
+1. true : 深拷贝，克隆节点及其属性，以及后代
+2. false : 浅拷贝(默认)，只克隆节点及其后代
+
+**返回值**：返回一个克隆之后的节点
+
+**示例**：
+
+```JavaScript
+  <div class="father">
+    <div class="son">
+      <div class="sun"></div>
+    </div>
+  </div>
+
+var father = document.querySelector('.father');
+
+// 浅拷贝:只拷贝自己的一层 (内容没有拷贝)
+var newFather = father.cloneNode(false);
+
+// 深拷贝:更深入一层的拷贝, 内容全部拷贝  (整体拷贝)
+// 深拷贝最常用
+var newFather1 = father.cloneNode(true);
+
+// 默认值:默认是false（浅拷贝）
+var newFather2 = father.cloneNode();
+```
+
+### 1.3.4. 节点的创建
+
+#### 1.3.4.1. `createElement()`
+
+创建一个元素节点（具体的一个元素）
+
+**结构** : var element = document.createElement('标签名')；
+
+#### 1.3.4.2. `createTextNode()`
+
+创建一个文本节点
+**结构** ：var element = document.createTextNode("文本");
+
+### 1.3.5. 节点的删除`removeChild()`
+
+从子节点列表中删除某个节点。
+
+**结构**：nodeObject.removeChild(node)
+
+**返回值**：返回被删除的节点，如失败，则返回 NULL。
+
+**示例**：
+
+```JavaScript
+// 方式1 :  父元素.removeChild(子元素)
+father.removeChild(son);
+
+// 方式2 :  子元素.parentNode.removeChild(子元素)
+son.parentNode.removeChild(son);
+```
+
+### 1.3.6. 节点的替换`replaceChild ()`
+
+替换节点
+
+**结构** : 父元素.replaceChild(newChild, oldChild)
+**参数**：
+
+1. newChild：必须。你要插入的节点对象。
+2. oldChild：必须。你要移除的节点对象。
+
+```JavaScript
+var replaceChild = document.body.replaceChild(div1,div2);//将div1替换div2
+```
+
+## 1.4. 获取元素的方法
+
+### 1.4.1. `getElementById()`
 
 获取指定 ID 的元素。
 
@@ -284,7 +431,7 @@ console.dir(div);
 
 ③ 若一个父节点下面有多个相同 ID 元素时，默认选取第一个(而不是层级最高的)。
 
-### 1.3.2. `getElementByTagName()`
+### 1.4.2. `getElementByTagName()`
 
 获取指定标签的元素。
 
@@ -312,7 +459,7 @@ var ps = document.getElementsByTagName('p');
 
 ④ 如果把特殊字符串 "\*" 传递给`getElementsByTagName()`方法，它将返回文档中所有元素的列表，元素排列的顺序就是它们在文档中的顺序。
 
-### 1.3.3. `getElementsByClassName()`
+### 1.4.3. `getElementsByClassName()`
 
 获取所有指定类名的元素。
 
@@ -337,7 +484,7 @@ var show = document.getElementsByClassName('show'); // 返回一个class包含sh
 ---|---|---
 4.0|9.0|3.0
 
-### 1.3.4. `getElementsByTagName()`
+### 1.4.4. `getElementsByTagName()`
 
 通过标签名获取元素。
 
@@ -359,7 +506,7 @@ document.getElementsByTagName('div'); // 返回一个标签为div的元素数组
 
 ① 返回值有没有获取到元素，都是一个伪数组，即便元素只有一个
 
-### 1.3.5. `querySelector()`
+### 1.4.5. `querySelector()`
 
 根据选择器获取一个元素。
 
@@ -377,7 +524,7 @@ document.getElementsByTagName('div'); // 返回一个标签为div的元素数组
 var li = document.querySelector('.u1 li');
 ```
 
-### 1.3.6. `querySelectorAll()`
+### 1.4.6. `querySelectorAll()`
 
 根据选择器获取全部元素。
 
@@ -395,7 +542,7 @@ var li = document.querySelector('.u1 li');
 var lis = document.querySelectorAll('.u1 li');
 ```
 
-### 1.3.7. 网页元素
+### 1.4.7. 网页元素
 
 ```JavaScript
 //1. 获取 body
