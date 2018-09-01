@@ -1,0 +1,83 @@
+# 1. DOM 中的 offset 属性
+
+## 1.1. `offsetParent`
+
+![offsetParent](images/offsetParent.png)
+
+与当前元素最近的经过定位(position 不等于 static)的父级元素，主要分为下列几种情况：
+
+1. 元素自身有 `fixed` 定位，`offsetParent` 的结果为 `null`
+
+当元素自身有 `fixed` 固定定位时，我们知道固定定位的元素相对于视口进行定位，此时没有定位父级，`offsetParent` 的结果为 `null`
+
+[注意]firefox 浏览器有兼容性问题
+
+```JavaScript
+<div id="test" style="position:fixed"></div>
+<script>
+//firefox并没有考虑固定定位的问题，返回<body>，其他浏览器都返回null
+console.log(test.offsetParent);
+</script>
+```
+
+2. 元素自身无 `fixed` 定位，且父级元素都未经过定位，`offsetParent` 的结果为 `<body>`
+
+```JavaScript
+<div id="test"></div>
+<script>
+console.log(test.offsetParent);//<body>
+</script>
+```
+
+3. 元素自身无 `fixed` 定位，且父级元素存在经过定位的元素，`offsetParent` 的结果为离自身元素最近的经过定位的父级元素
+
+```JavaScript
+<div id="div0" style="position:absolute;">
+    <div id="div1" style="position:absolute;">
+        <div id='test'></div>
+    </div>
+</div>
+<script>
+console.log(test.offsetParent);    //<div id="div1">
+</script>
+```
+
+4. `<body>`元素的`parentNode`是`null`
+
+```JavaScript
+console.log(document.body.offsetParent);//null
+```
+
+## 1.2. `offsetLeft`
+
+`offsetLeft` 表示元素的左外边框至 `offsetParent` 元素的左内边框之间的像素距离
+
+## 1.3. `offsetTop`
+
+`offsetTop` 表示元素的上外边框至 `offsetParent` 元素的上内边框之间的像素距离
+
+**offsetTop 和 style.top 的区别**：
+
+1. 最大区别在于 `offsetLeft` 可以返回没有定位盒子的距离左侧的位置。 而 `style.top` 不可以 只有定位的盒子 才有 left top right
+2. `offsetTop` 返回的是数字，而 `style.top` 返回的是字符串，除了数字外还带有单位：px。
+3. `offsetTop` 只读，而 `style.top` 可读写。
+4. 如果没有给 `HTML` 元素指定过 `top` 样式，则 `style.top` 返回的是空字符串。
+5. 最重要的区别 `style.left` 只能得到 行内样式 `offsetLeft` 随便
+
+## 1.4. `offsetWidth`
+
+`offsetWidth` 表示元素在水平方向上占用的空间大小，无单位(以像素 px 计)
+
+> offsetWidth = border-left-width + padding-left + width + padding-right + border-right-width;
+
+## 1.5. `offsetHeight`
+
+`offsetHeight` 表示元素在垂直方向上占用的空间大小，无单位(以像素 px 计)
+
+> offsetHeight = border-top-width + padding-top + height + padding-bottom + border-bottom-width;
+
+## 1.6. 注意事项
+
+1. 所有偏移量属性都是只读的
+2. 如果给元素设置了 display:none，则它的偏移量属性都为 0
+3. 每次访问偏移量属性都需要重新计算
