@@ -1,0 +1,123 @@
+<!-- TOC -->
+
+- [1. Math 对象](#1-math-对象)
+  - [1.1. Math 对象属性](#11-math-对象属性)
+  - [1.2. Math 对象方法](#12-math-对象方法)
+    - [1.2.1. 最大值最小值](#121-最大值最小值)
+    - [1.2.2. 绝对值](#122-绝对值)
+    - [1.2.3. 取整](#123-取整)
+    - [1.2.4. 随机数](#124-随机数)
+    - [1.2.5. 次幂和平方](#125-次幂和平方)
+
+<!-- /TOC -->
+
+# 1. Math 对象
+
+## 1.1. Math 对象属性
+
+| 属性         | 说明                          |
+| ------------ | ----------------------------- |
+| Math.E       | 自然对数的底数，即常量 e 的值 |
+| Math.LN10    | 10 的自然对数                 |
+| Math.LN2     | 2 的自然对数                  |
+| Math.LOG2E   | 以 2 为底 e 的对数            |
+| Math.LOG10E  | 以 10 为底 e 的对数           |
+| Math.PI      | π 的值                        |
+| Math.SQRT1_2 | 1/2 的平方根                  |
+| Math.SQRT2   | 2 的平方根                    |
+
+## 1.2. Math 对象方法
+
+### 1.2.1. 最大值最小值
+
+Math.max()求最大值  
+Math.min()求最小值
+
+**参数**：数字或者纯数字的字符串。
+
+**返回值**：最大/小的那个数值，若一个参数不为数字，返回 NaN。
+
+**示例**：
+
+```JavaScript
+  console.log(Math.max(1, 2, 3, 4));        //4
+  console.log(Math.min(1, 2, 3, 4));        //1
+```
+
+### 1.2.2. 绝对值
+
+**参数**：数字或者纯数字的字符串。
+
+**返回值**：返回参数的绝对值数字。若参数不为数字，返回 NaN。
+
+**示例**：
+
+```JavaScript
+  var a = -10;
+  console.log(Math.abs(a));     //10
+```
+
+### 1.2.3. 取整
+
+- Math.ceil();//向上取整
+- Math.floor();//向下取整
+- Math.round();//四舍五入，如果是.5，则取更大的那个数
+
+**参数**：数字或者纯数字的字符串。
+
+**返回值**：返回取整后的值。若参数不为数字，返回 NaN。
+
+**示例**：
+
+```JavaScript
+  console.log(Math.ceil(1.00001));      //2
+  console.log(Math.floor(1.99999));     //1
+  console.log(Math.round(1.5));         //2
+```
+
+### 1.2.4. 随机数
+
+Math.random()随机数，返回的是一个 0 - 1 的随机小数，包含 0，但是不包含 1。
+
+```JavaScript
+  console.log(Math.random());
+```
+
+求 0 - N 的随机整数
+
+```JavaScript
+    console.log(Math.floor(Math.random() * (N + 1)));
+    console.log(parseInt(Math.random() * (N + 1)));
+```
+
+求 m - n 的随机整数
+
+```JavaScript
+console.log（parseInt(Math.random() * (n - m + 1) + m)）；
+```
+
+### 1.2.5. 次幂和平方
+
+Math.pow(x,y)方法返回 x 的 y 次幂的值
+
+**参数**：数字或者纯数字的字符串。
+
+**返回值**：返回 x 的 y 次方。若一个参数不为数字，返回 NaN。
+
+**示例**：
+
+```JavaScript
+  console.log(Math.pow(2, 5));//求num的power次方
+```
+
+Math.sqrt(x)方法返回 x 的平方根
+
+**参数**：数字或者纯数字的字符串。
+
+**返回值**：返回参数的平方根
+
+**示例**：
+
+```JavaScript
+  console.log(Math.sqrt(3));//对num开平方
+```
