@@ -41,7 +41,7 @@
 
 ```JavaScript
 var dt = new Date();
-console.log(dt); // => 返回一个表示本地日期和时间的 Date 对象
+console.log(dt); // => Wed Sep 12 2018 15:53:21 GMT+0800 (中国标准时间)
 ```
 
 ### 1.2.2. `new Date(milliseconds)` ：把毫秒数转换为 `Date` 对象
@@ -278,8 +278,4 @@ var seconds = s % 60;
 console.log(seconds);
 
 console.log('距离 2018-9-25 12:00:00 为止还有' + day + '天' + hours + '小时' + minutes + '分钟' + seconds + '秒');
-```
-
-```
-
 ```
