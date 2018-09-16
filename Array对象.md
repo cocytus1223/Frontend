@@ -15,9 +15,13 @@
     - [1.2.10. `splice()`：插入、删除数组元素](#1210-splice插入删除数组元素)
     - [1.2.11. `indexOf()` ：在数组中查找匹配元素。](#1211-indexof-在数组中查找匹配元素)
     - [1.2.12. `lastIndexOf()` ：在数组中反向查找匹配元素。](#1212-lastindexof-在数组中反向查找匹配元素)
-    - [1.2.13. `forEach()` ：依次遍历元素，执行指定的函数；无返回值](#1213-foreach-依次遍历元素执行指定的函数无返回值)
-    - [1.2.14. `filter()` ：依次遍历元素，返回包含符合条件元素的新的数组](#1214-filter-依次遍历元素返回包含符合条件元素的新的数组)
-    - [1.2.15. `Array.isArray()` ：判断对象是否为数组](#1215-arrayisarray-判断对象是否为数组)
+    - [1.2.13. `Array.isArray()` ：判断对象是否为数组](#1213-arrayisarray-判断对象是否为数组)
+  - [1.3. 遍历数组的 5 种方法](#13-遍历数组的-5-种方法)
+    - [1.3.1. `forEach()` ：依次遍历元素，执行指定的函数；无返回值](#131-foreach-依次遍历元素执行指定的函数无返回值)
+    - [1.3.2. `filter()` ：依次遍历元素，返回包含符合条件元素的新的数组](#132-filter-依次遍历元素返回包含符合条件元素的新的数组)
+    - [1.3.3. `map()` ：依次遍历元素，返回包含符合条件元素的新的数组](#133-map-依次遍历元素返回包含符合条件元素的新的数组)
+    - [1.3.4. `some()`：依次遍历元素，判断是否有元素为 true](#134-some依次遍历元素判断是否有元素为-true)
+    - [1.3.5. `every()`：依次遍历元素，判断每个元素是否都为 true](#135-every依次遍历元素判断每个元素是否都为-true)
 
 <!-- /TOC -->
 
@@ -338,11 +342,32 @@ arr.splice(1,0,'ttt')        //['a','ttt','b','c','d']         表示在下标�
 [1, 2, 3].lastIndexOf('1'); // => -1 ：采用的'==='匹配方式
 ```
 
-### 1.2.13. `forEach()` ：依次遍历元素，执行指定的函数；无返回值
+### 1.2.13. `Array.isArray()` ：判断对象是否为数组
 
 **参数**：
 
-①function(value,index,self){} ：每个元素依次调用此函数
+任意对象
+
+**返回值**：
+
+返回判断结果。当为 true 时，表示对象为数组；为 false 时，表示对象不是数组
+
+**示例**：
+
+```JavaScript
+Array.isArray([]); // => true
+Array.isArray(['a', 'b', 'c']); // => true
+Array.isArray('a'); // => false
+Array.isArray('[1, 2, 3]'); // => false
+```
+
+## 1.3. 遍历数组的 5 种方法
+
+### 1.3.1. `forEach()` ：依次遍历元素，执行指定的函数；无返回值
+
+**参数**：
+
+function(value,index,self){} ：每个元素依次调用此函数
 
 value ：数组遍历的元素
 
@@ -363,11 +388,11 @@ demoArray.forEach(function (value, index, self) {
 });
 ```
 
-### 1.2.14. `filter()` ：依次遍历元素，返回包含符合条件元素的新的数组
+### 1.3.2. `filter()` ：依次遍历元素，返回包含符合条件元素的新的数组
 
 **参数**：
 
-①function(value,index,self){} ：每个元素依次调用此函数，返回包含符合条件元素的新的数组。
+function(value,index,self){} ：每个元素依次调用此函数，返回包含符合条件元素的新的数组。
 
 value ：数组遍历的元素
 
@@ -389,21 +414,74 @@ var rs = demoArray.filter(function (value, index, self) {
 console.log(rs); // => [1, 2, 3]
 ```
 
-### 1.2.15. `Array.isArray()` ：判断对象是否为数组
+### 1.3.3. `map()` ：依次遍历元素，返回包含符合条件元素的新的数组
 
 **参数**：
 
-任意对象
+function(value,index,self){} ：每个元素依次调用此函数，返回计算好的元素。
+
+value ：数组遍历的元素
+
+index ：元素序号
+
+self ：Array 本身
 
 **返回值**：
 
-返回判断结果。当为 true 时，表示对象为数组；为 false 时，表示对象不是数组
+一个包含计算好的元素的新的数组
 
 **示例**：
 
 ```JavaScript
-Array.isArray([]); // => true
-Array.isArray(['a', 'b', 'c']); // => true
-Array.isArray('a'); // => false
-Array.isArray('[1, 2, 3]'); // => false
+[1, 2, 3].map(function (value, index, self) {
+    return value * 2;
+}); // => [2, 4, 6]
+```
+
+### 1.3.4. `some()`：依次遍历元素，判断是否有元素为 true
+
+**参数**：
+
+value ：数组遍历的元素
+
+index ：元素序号
+
+self ：Array 本身
+
+**返回值**：
+
+布尔值。如果数组中有元素满足条件返回 true，否则返回 false。
+
+**示例**：
+
+```JavaScript
+var demoarr = [1, 2, 3];
+var re = demoarr.some(function (value, index, self){
+return value >6;
+})
+console.log(re);// false
+```
+
+### 1.3.5. `every()`：依次遍历元素，判断每个元素是否都为 true
+
+**参数**：
+function(value,index,self){} ：每个元素都会使用此函数判断是否为 true，当判断到一个为 false 时，立即结束遍历。
+
+value ：数组遍历的元素
+
+index ：元素序号
+
+self ：Array 本身
+
+**返回值**：
+只有每个元素都为 true 才返回 true；只要一个为 false，就返回 false。
+
+**示例**：
+
+```JavaScript
+var demoArray = [1, 2, 3];
+var rs = demoArray.every(function (value, index, self) {
+    return value > 0;
+});
+console.log(rs); // => true
 ```
