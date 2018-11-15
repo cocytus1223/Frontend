@@ -283,3 +283,94 @@ ul {
   top: -8px;
   font-size: 40px;
 }
+
+/* 新闻模块 */
+.wjs_news {
+  padding: 30px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.wjs_news .title {
+  font-size: 20px;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #e92322;
+  text-align: center;
+  position: relative;
+}
+
+.wjs_news .title:before {
+  content: "";
+  position: absolute;
+  right: -6px;
+  bottom: -3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1px solid #e92322;
+}
+
+.wjs_news .tab-ul li.active a {
+  background-color: #e92322;
+}
+
+.wjs_news .tab-ul li a {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: block;
+  background-color: #ccc;
+  text-align: center;
+  line-height: 60px;
+  margin-bottom: 60px;
+  color: #fff;
+  font-size: 30px;
+
+  position: relative;
+  /* z-index 必须结合定位一起使用 */
+  z-index: 999;
+}
+
+.wjs_news .tab-ul li:last-child a {
+  margin-bottom: 0px;
+}
+
+.wjs_news .line {
+  position: absolute;
+  left: 45px;
+  top: 0;
+  height: 100%;
+  border-right: 1px dashed #e92322;
+}
+
+.wjs_news .tab-content {
+  line-height: 30px;
+}
+
+/* 让 tab-ul 下面的 li 左浮动并且宽度 25%, 只在小屏幕和超小屏幕生效
+   0-768-992-1200- 小屏幕和超小屏幕生效  =>  0-992
+*/
+
+/* <= 992 生效 */
+@media screen and (max-width: 992px) {
+  .wjs_news .tab-ul li {
+    float: left;
+    width: 25%;
+  }
+
+  .wjs_news .tab-ul li a {
+    margin: 20px auto;
+  }
+}
+
+
+.wjs_partner {
+  padding: 30px 0;
+  text-align: center;
+}
+
+.wjs_partner li {
+  display: inline-block;
+  font-size: 60px;
+  margin: 0 30px;
+}
