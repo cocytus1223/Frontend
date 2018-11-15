@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <title>微金所</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
 
   <link rel="icon" href="./favicon.ico">
@@ -14,6 +14,7 @@
 
   <link rel="stylesheet" href="./css/index.css">
 </head>
+
 <body>
   <!-- 头部区域 -->
   <!-- 1. 大屏和中屏显示，小屏和超小屏隐藏 -->
@@ -28,23 +29,62 @@
         </a>
       </div>
       <div class="col-md-5 item">
-          <i class="wjs_icon wjs_icon_tel"></i>
-          <span> 4006-89-4006（服务时间：9:00-21:00）</span>
+        <i class="wjs_icon wjs_icon_tel"></i>
+        <span> 4006-89-4006（服务时间：9:00-21:00）</span>
       </div>
       <div class="col-md-2 item">
-          <a href="#">常见问题</a>
-          <a href="#">财富登录</a>
+        <a href="#">常见问题</a>
+        <a href="#">财富登录</a>
       </div>
       <div class="col-md-3 item">
-          <button class="btn btn-danger">免费注册</button>
-          <button class="btn btn-link">登录</button>
+        <button class="btn btn-danger">免费注册</button>
+        <button class="btn btn-link">登录</button>
       </div>
     </div>
   </div>
 
+  <!-- 导航区域 -->
+  <div class="wjs_nav">
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- 将大标题和按钮组合使用，在移动端有更好的显示效果 -->
+        <div class="navbar-header">
+          <!-- 切换的按钮 -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- 大标题 -->
+          <a class="navbar-brand" href="#">
+            <i class="wjs_icon wjs_icon_logo"></i>
+            <i class="wjs_icon wjs_icon_word"></i>
+          </a>
+        </div>
+
+        <!-- 用于切换的 collapse 列表 -->
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <!-- 左侧的 ul -->
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">我要投资</a></li>
+            <li><a href="#">我要借贷</a></li>
+            <li><a href="#">平台介绍</a></li>
+            <li><a href="#">新手专区</a></li>
+            <li><a href="#">最新动态</a></li>
+            <li><a href="#">微平台</a></li>
+          </ul>
+
+          <!-- 右侧的 ul 在小屏幕隐藏 -->
+          <ul class="nav navbar-nav navbar-right hidden-sm">
+            <li><a href="#">个人中心</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
 
-<script src="./lib/jquery/jquery-1.12.4.js"></script>
-<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./lib/jquery/jquery-1.12.4.js"></script>
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 </body>
+
 </html>

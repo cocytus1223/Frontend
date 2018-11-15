@@ -71,3 +71,54 @@ ul {
 .wjs_header .btn-link:hover {
   color: #e92322;
 }
+
+/* 导航区域 */
+.wjs_nav {
+  border-bottom: 1px solid #ccc;
+}
+
+.wjs_nav .navbar-nav>li>a {
+  height: 80px;
+  line-height: 50px;
+}
+
+.wjs_nav .navbar-nav>li>a:hover {
+  border-bottom: 3px solid #e92322;
+}
+
+.wjs_nav .navbar-default .navbar-nav>.active>a,
+.wjs_nav .navbar-default .navbar-nav>.active>a:hover,
+.wjs_nav .navbar-default .navbar-nav>.active>a:focus {
+  /* transparent 透明的 */
+  background-color: transparent;
+
+  /* 添加自己的样式 */
+  border-bottom: 3px solid #e92322;
+}
+
+.wjs_nav .wjs_icon_logo {
+  font-size: 50px;
+  vertical-align: middle;
+  color: #e92322;
+}
+
+.wjs_nav .wjs_icon_word {
+  font-size: 36px;
+  vertical-align: middle;
+  color: #000;
+}
+
+.wjs_nav .navbar-brand {
+  height: 80px;
+  line-height: 50px;
+}
+
+.wjs_nav .navbar {
+  margin: 0;
+  border: none;
+  background-color: #fff;
+}
+
+.wjs_nav .navbar-toggle {
+  margin-top: 23px;
+}
