@@ -57,6 +57,7 @@ ul {
   left: 50%;
   transform: translateX(-50%);
   border: 1px solid #ccc;
+  z-index: 999;
 }
 
 .wjs_header .btn {
@@ -121,4 +122,19 @@ ul {
 
 .wjs_nav .navbar-toggle {
   margin-top: 23px;
+}
+/* pc 轮播图样式, 定高, 图片居中, 只在大于640的屏幕中生效  */
+@media screen and (min-width: 641px) {
+  .carousel .item {
+    height: 410px;
+    /* 图片太长了, 溢出了父容器, 需要overflow:hidden 隐藏掉 */
+    overflow: hidden;
+  }
+  .carousel .item img {
+    height: 410px;
+    max-width: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
