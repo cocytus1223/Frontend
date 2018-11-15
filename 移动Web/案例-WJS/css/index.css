@@ -131,6 +131,7 @@ ul {
     /* 图片太长了, 溢出了父容器, 需要overflow:hidden 隐藏掉 */
     overflow: hidden;
   }
+
   .carousel .item img {
     height: 410px;
     max-width: none;
@@ -145,9 +146,11 @@ ul {
   padding: 30px 0;
   border-bottom: 1px solid #ccc;
 }
+
 .wjs_info .wjs_icon_info {
   font-size: 30px;
 }
+
 .wjs_info .media {
   display: block;
   padding: 10px 0;
@@ -158,10 +161,125 @@ ul {
   padding: 30px 0;
   border-bottom: 1px solid #ccc;
 }
+
 .wjs_book .wjs_icon {
   font-size: 20px;
 }
+
 .wjs_book .book_now {
   color: #e92322;
   border-bottom: 1px dashed #e92322;
+}
+
+/* 产品模块 */
+.wjs_product {
+  padding: 30px 0;
+  border-bottom: 1px solid #ccc;
+  background-color: #F5F5F5;
+}
+
+.wjs_product .nav-tabs>li.active>a,
+.wjs_product .nav-tabs>li.active>a:hover,
+.wjs_product .nav-tabs>li.active>a:focus {
+  background-color: transparent;
+  /* 去掉 active a 的边框 */
+  border: none;
+
+  /* 添加自定义的下边框 */
+  border-bottom: 3px solid #e92322;
+}
+
+.wjs_product .nav-tabs>li>a {
+  /* 去掉默认添加的 1px 透明的边框 */
+  border: none;
+}
+
+.wjs_product .nav>li>a:hover,
+.wjs_product .nav>li>a:focus {
+  background-color: transparent;
+}
+
+
+.wjs_product .ul-wrapper {
+  overflow: hidden;
+}
+
+.wjs_product .nav-tabs {
+  width: 2000px;
+}
+
+.wjs_product .product_item {
+  height: 150px;
+  background-color: pink;
+  margin-top: 20px;
+  position: relative;
+}
+
+.wjs_product .product_item.current {
+  background-color: #e92322;
+  color: #fff;
+}
+
+
+.wjs_product .product_item_right {
+  float: right;
+  width: 80px;
+  height: 100%;
+  position: relative;
+  border-left: 1px dashed blue;
+  text-align: center;
+}
+
+.wjs_product .product_item_right:before,
+.wjs_product .product_item_right:after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-color: #F5F5F5;
+  border-radius: 50%;
+  position: absolute;
+  left: -10px;
+}
+
+.wjs_product .product_item_right:before {
+  top: -10px;
+}
+
+.wjs_product .product_item_right:after {
+  bottom: -10px;
+}
+
+.wjs_product .product_item_right p {
+  font-size: 16px;
+}
+
+.wjs_product .product_item_right .percent {
+  margin-top: 30px;
+}
+
+.wjs_product .product_item_right .percent b {
+  font-size: 30px;
+}
+
+
+
+.wjs_product .product_item_left {
+  overflow: hidden;
+  height: 100%;
+}
+
+.wjs_product .product_item_left .title {
+  font-size: 18px;
+  text-align: center;
+}
+
+.wjs_product .product_item_left p {
+  margin-bottom: 5px;
+}
+
+.wjs_product .product_item .wjs_icon_experience {
+  position: absolute;
+  left: 0;
+  top: -8px;
+  font-size: 40px;
 }
