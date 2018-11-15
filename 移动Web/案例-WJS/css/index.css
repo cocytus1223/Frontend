@@ -1,0 +1,73 @@
+/* 在 normalize 的基础上, 进行公用的样式重置 */
+a {
+  color: #333;
+}
+
+/* lvha */
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+a:hover {
+  /* 主题色 */
+  color: #e92322;
+}
+
+i {
+  font-style: normal;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* 头部区域 */
+.wjs_header {
+  border-bottom: 1px solid #ccc;
+}
+
+.wjs_header .item {
+  line-height: 40px;
+  text-align: center;
+  border-right: 1px solid #ccc;
+}
+
+.wjs_header .item:last-child {
+  border-right: none;
+}
+
+.wjs_header .mobile {
+  position: relative;
+  display: block;
+}
+
+.wjs_header .mobile:hover .code {
+  display: block;
+}
+
+.wjs_header .mobile .code {
+  position: absolute;
+  display: none;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid #ccc;
+}
+
+.wjs_header .btn {
+  padding: 2px 12px;
+}
+
+.wjs_header .btn-link {
+  color: #333;
+  text-decoration: none;
+}
+
+.wjs_header .btn-link:hover {
+  color: #e92322;
+}
