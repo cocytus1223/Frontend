@@ -155,7 +155,7 @@ v-on 绑定事件监听器。事件类型由参数指定。表达式可以是一
 **事件修饰符**：
 
 - `.stop` 调用 `event.stopPropagation()`。阻止事件继续传播
-- `.prevent` 调用 `event.preventDefault()`。组织默认行为
+- `.prevent` 调用 `event.preventDefault()`。阻止默认行为
 - `.capture` 使用事件捕获模式
 - `.self` 只当在 event.target 是当前元素自身时触发处理函数
 - `.once` 事件将只会触发一次
