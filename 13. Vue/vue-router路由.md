@@ -67,3 +67,92 @@ const router = new VueRouter({
 不过这种模式要玩好，还需要后台配置支持。因为我们的应用是个单页客户端应用，如果后台没有正确的配置，当用户在浏览器直接访问 `http://oursite.com/user/id` 就会返回 404，这就不好看了。
 
 所以呢，你要在服务端增加一个覆盖所有情况的候选资源：如果 URL 匹配不到任何静态资源，则应该返回同一个 `index.html` 页面，这个页面就是你 app 依赖的页面。
+
+## 传参的三种方式
+
+### 方案一：\$router.push
+
+```js
+getDescribe(id) {
+//   直接调用$router.push 实现携带参数的跳转
+  this.$router.push({
+    path: `/describe/${id}`,
+  })
+```
+
+需要对应路由配置如下：
+
+```js
+{
+  path: '/describe/:id',
+  name: 'Describe',
+  component: Describe
+}
+```
+
+很显然，需要在 `path` 中添加`/:id` 来对应 `$router.push` 中 `path` 携带的参数。在子组件中可以使用来获取传递的参数值。
+
+```js
+$route.params.id
+```
+
+### 方案二：
+
+父组件中：通过路由属性中的 name 来确定匹配的路由，通过 params 来传递参数。
+
+```js
+this.$router.push({
+  name: 'Describe',
+  params: {
+    id: id
+  }
+})
+```
+
+对应路由配置: 注意这里不能使用:/id 来传递参数了，因为父组件中，已经使用 params 来携带参数了。
+
+```js
+{
+  path: '/describe',
+  name: 'Describe',
+  component: Describe
+}
+```
+
+子组件中: 这样来获取参数
+
+```js
+$route.params.id
+```
+
+### 方案三：
+
+父组件：使用 path 来匹配路由，然后通过 query 来传递参数
+这种情况下 query 传递的参数会显示在 url 后面?id=？
+
+```js
+this.$router.push({
+  path: '/describe',
+  query: {
+    id: id
+  }
+})
+```
+
+对应路由配置：
+
+```js
+{
+path: '/describe',
+name: 'Describe',
+component: Describe
+}
+```
+
+对应子组件: 这样来获取参数
+
+```js
+$route.query.id
+```
+
+这里要特别注意 在子组件中 获取参数的时候是\$route.params 而不是
