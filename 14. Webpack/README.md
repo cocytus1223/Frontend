@@ -6,6 +6,19 @@
 
 [webpack 官网](https://webpack.js.org/)
 
+## webpack 做了点什么？
+
+1. 代码转换功能
+
+   - less/sass ====> css
+   - ES6~ES9 语法 ====> ES3/ES5 保证所有浏览器都兼容
+   - typescript ====> js 代码
+
+2. 代码压缩、合并，把一些无用的代码删除
+3. 提供了一个开发的环境
+   - 自动打开浏览器，自动热更新
+4. 开发完毕使用 webpack 先进行打包，再放到服务器进行部署
+
 ## 1.1. webpack 打包器说明
 
 ![webpack](../images/webpack.png)
